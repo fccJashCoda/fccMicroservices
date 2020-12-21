@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const app = express();
+const router = require('./routes/router');
 
 const port = process.env.PORT || 5444;
 
@@ -11,23 +12,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/api', router.api);
+
 app.get('/', (req, res) => {
   res.json({ msg: 'all clear' });
-});
-
-app.post('/api/timestamp/:time', (req, res) => {
-  Date.prototype.isValid = function () {
-    return this.getTime() === this.getTime();
-  };
-
-  const date = new Date(Number(req.params.time));
-  console.log(date);
-  console.log(date.isValid());
-
-  if (!date.isValid()) {
-    return res.json({ err: 'invalid Date' });
-  }
-  return res.json({ unix: `${date.getTime()}`, utx: `${date.toUTCString()}` });
 });
 
 app.use((req, res, next) => {

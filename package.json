@@ -1,10 +1,11 @@
 {
-  "name": "fcctimestampmicroservice",
+  "name": "fccMicroservices",
   "version": "1.0.0",
-  "description": "Timestamp Microservice",
+  "description": "freeCodeCamp Microservices",
   "main": "index.js",
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+    "dev": "nodemon server"
   },
   "author": "fccJashCoda",
   "license": "MIT",

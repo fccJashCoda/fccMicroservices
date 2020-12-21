@@ -1,1 +1,3 @@
-# fcc Timestamp Microservice
+# fcc Microservices
+
+-timestamp route - /api/timestamp/:time
